@@ -1,0 +1,35 @@
+{
+  "images" : [
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 24,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 0,
+          "top" : 1,
+          "right" : 0,
+          "left" : 2
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "btn_cab_done_pressed_indigo.9副本.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

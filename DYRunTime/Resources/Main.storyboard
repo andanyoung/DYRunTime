@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="xez-J5-rWc">
+            <objects>
+                <tableViewController storyboardIdentifier="main" id="Cjh-bq-YYH" customClass="DYMainViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WT4-IZ-KRx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Lhp-92-8Dp" customClass="DYRunRecordCell">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lhp-92-8Dp" id="UAw-Q8-kC3">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Cjh-bq-YYH" id="kYg-pE-smf"/>
+                            <outlet property="delegate" destination="Cjh-bq-YYH" id="lA0-U4-v1r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="XMx-KY-SCG"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sic-p5-wDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="231" y="230"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="map" id="BYZ-38-t0r" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TyB-Bc-nXh" customClass="BMKMapView">
+                                <rect key="frame" x="4" y="0.0" width="592" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYw-q6-hco">
+                                <rect key="frame" x="490" y="514" width="66" height="66"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="Xxn-m5-rZd"/>
+                                    <constraint firstAttribute="width" constant="66" id="rM3-zB-v4C"/>
+                                </constraints>
+                                <state key="normal" image="cancel_button" backgroundImage="bg_avatar_default"/>
+                                <state key="highlighted" backgroundImage="abc_ic_clear_disabled"/>
+                                <connections>
+                                    <action selector="quitMap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9fV-fP-fU2"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylQ-J5-YNh" userLabel="share">
+                                <rect key="frame" x="516" y="40" width="40" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ala-8x-dCY"/>
+                                    <constraint firstAttribute="height" constant="40" id="pwe-i3-gpu"/>
+                                </constraints>
+                                <state key="normal" image="ic_share_light" backgroundImage="bg_avatar_default"/>
+                                <connections>
+                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ztP-H0-ez4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eYw-q6-hco" secondAttribute="bottom" constant="20" id="1O5-eV-dk8"/>
+                            <constraint firstItem="TyB-Bc-nXh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="5e8-bu-xUq"/>
+                            <constraint firstItem="TyB-Bc-nXh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6ZZ-ML-wXA"/>
+                            <constraint firstItem="TyB-Bc-nXh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="6t5-CZ-tJf"/>
+                            <constraint firstItem="eYw-q6-hco" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="HdP-tj-v9b"/>
+                            <constraint firstItem="TyB-Bc-nXh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="S2G-IM-n9O"/>
+                            <constraint firstItem="eYw-q6-hco" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="UMQ-15-X24"/>
+                            <constraint firstAttribute="trailing" secondItem="eYw-q6-hco" secondAttribute="trailing" constant="44" id="W2s-zC-IGI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ylQ-J5-YNh" secondAttribute="trailing" constant="24" id="ZUU-Qj-smG"/>
+                            <constraint firstAttribute="trailing" secondItem="ylQ-J5-YNh" secondAttribute="trailing" constant="44" id="ap5-pu-hBH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TyB-Bc-nXh" secondAttribute="trailing" constant="-16" id="eS8-Ts-nbu"/>
+                            <constraint firstAttribute="trailing" secondItem="eYw-q6-hco" secondAttribute="trailing" constant="44" id="h1Z-Io-BoY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TyB-Bc-nXh" secondAttribute="bottom" id="o8M-Xm-BNA"/>
+                            <constraint firstItem="ylQ-J5-YNh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="vTF-cX-HSp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5e8-bu-xUq"/>
+                                <exclude reference="6ZZ-ML-wXA"/>
+                                <exclude reference="ZUU-Qj-smG"/>
+                                <exclude reference="HdP-tj-v9b"/>
+                                <exclude reference="UMQ-15-X24"/>
+                                <exclude reference="W2s-zC-IGI"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="TyB-Bc-nXh" id="Gj6-Qn-Uch"/>
+                        <outlet property="shareBtn" destination="ylQ-J5-YNh" id="Bld-5A-DHj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1029" y="289"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="abc_ic_clear_disabled" width="32" height="32"/>
+        <image name="bg_avatar_default" width="32" height="32"/>
+        <image name="cancel_button" width="60" height="60"/>
+        <image name="ic_share_light" width="72" height="72"/>
+    </resources>
+</document>

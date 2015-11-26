@@ -1,0 +1,79 @@
+////
+////  DYRunTime.pch
+////  DYRunTime
+////
+////  Created by tarena on 15/10/11.
+////  Copyright (c) 2015年 ady. All rights reserved.
+////
+//
+////#ifndef DYRunTime_DYRunTime_pch
+////#define DYRunTime_DYRunTime_pch
+////
+////// Include any system framework and library headers here that should be included in all compilation units.
+////// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+////
+////#endif
+//
+//// 自定义Log
+//
+
+
+
+//
+//
+//#ifndef PrefixHeader_pch
+//#define PrefixHeader_pch
+///*Xcode7以下版本需要添加下方宏定义 支持AF*/
+////#ifdef TARGET_OS_IOS
+////
+////#define TARGET_OS_IOS TARGET_OS_IPHONE
+////
+////#endif
+////
+////#ifndef TARGET_OS_WATCH
+////
+////#define TARGET_OS_WATCH 0
+////
+////#endif
+///*Xcode7以下版本需要添加上方宏定义 支持AF*/
+//
+#import <BlocksKit.h>
+//#import <BlocksKit+MessageUI.h>
+#import <BlocksKit+UIKit.h>
+#import "MobClick.h"
+
+#import <MBProgressHUD.h>
+////用于存放全局宏定义 或者 静态字符串
+#import "Constants.h"
+//
+//#import <AFNetworking.h>
+//#import <UIKit+AFNetworking.h>
+//
+//
+//#import <BlocksKit.h>
+//#import <BlocksKit+MessageUI.h>
+//#import <BlocksKit+UIKit.h>
+//
+//#import <MJRefresh.h>
+//#import <MJExtension.h>
+//
+//#import <FMDB/FMDB.h>
+#import <CocoaLumberjack.h>
+
+#ifdef DEBUG
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static const DDLogLevel ddLogLevel = DDLogLevelError;
+#endif
+
+#import <MBProgressHUD.h>
+
+#import "NSObject+Common.h"       //个人添加的在界面上弹出提示的类拓展
+
+////#import <SVProgressHUD.h>
+////#import <UIImageView+WebCache.h>
+//#import <Masonry.h>
+//
+
+//
+//#endif /* PrefixHeader_pch */
