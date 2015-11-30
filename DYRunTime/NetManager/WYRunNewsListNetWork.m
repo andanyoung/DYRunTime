@@ -24,6 +24,10 @@ static NSString *lastLmodify = nil; //用于保存上一次保存到本地的数
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"text/html",@"application/json", nil];
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+     manager.requestSerializer.timeoutInterval = 10.0f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     [manager GET:urlPath parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
@@ -43,6 +47,7 @@ static NSString *lastLmodify = nil; //用于保存上一次保存到本地的数
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
         DDLogError(@"%@",error);
+        complete(nil,error);
     }];
     return nil;
 }

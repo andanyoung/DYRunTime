@@ -39,12 +39,15 @@
 
 - (id)getNewsListFromNetCompleteWithError:(void (^)(NSError *))complete{
     [self.task cancel];
-    if (_pageNumber == 0) {
-        [self.dataArr removeAllObjects];
-    }
-   
+
     self.task = [WYRunNewsListNetWork Get:urlPath andParameter:@{@"pageNumber":@(_pageNumber)} completeHandle:^(id model, NSError *error) {
-        [self.dataArr addObjectsFromArray: model];
+        if (!error) {
+            if (_pageNumber == 0) {
+                [self.dataArr removeAllObjects];
+            }
+            [self.dataArr addObjectsFromArray: model];
+        }
+        
         complete(error);
     }];
     

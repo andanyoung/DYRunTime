@@ -14,9 +14,9 @@
 
 #define effectAlpha 0.7
 #define kMagnitude 1 //重力强度
-#define contentViewHeight 250
+#define contentViewHeight 240
 #define iconWidth 50 //登录按钮高度
-#define pathY 0.6 //contentView 下降的高度比例
+#define pathY 0.75 //contentView 下降的高度比例
 #define userIconHeight 0
 #define userIconWidth 80
 #define loginBarHeight 15
@@ -31,8 +31,27 @@
 @end
 
 @implementation LoginViewController
+- (UIImageView *)userIcon{
+    if (_userIcon == nil) {
+        _userIcon = [UIImageView new];
+        [self.contentView addSubview:_userIcon];
+        _userIcon.layer.cornerRadius = userIconWidth /2;
+        _userIcon.layer.masksToBounds = YES;
 
-- (UIDynamicAnimator *)animator{
+    }
+    return _userIcon;
+}
+- (UILabel *)userName{
+    if (_userName == nil) {
+        _userName = [UILabel new];
+        [self.contentView addSubview:_userName];
+        _userName.font = [UIFont fontWithName:@"Arial" size:12];
+        _userName.numberOfLines = 1;
+        _userName.textAlignment = NSTextAlignmentCenter;
+    }
+    return _userName;
+}
+- (void)fallAnimation{
     if (_animator == nil) {
         _animator = [[UIDynamicAnimator alloc]initWithReferenceView:self.view];
         UIGravityBehavior *gravity = [[UIGravityBehavior alloc]initWithItems:@[self.contentView]];
@@ -52,8 +71,8 @@
         //collision.collisionMode = UICollisionBehaviorModeEverything;
         [_animator addBehavior:collision];
     }
-    return _animator;
 }
+
 
 -(UIView *)contentView{
     if (_contentView == nil) {
@@ -64,8 +83,7 @@
        // _contentView.backgroundColor = [UIColor redColor];
         UIImageView *loginBar = [[UIImageView alloc]initWithImage: [UIImage imageNamed:@"loginBar"]];
         [_contentView addSubview:loginBar];
-        loginBar.frame = CGRectMake(0, contentViewHeight - iconWidth -loginBarHeight, kWindowW,loginBarHeight
-                                    );
+        loginBar.frame = CGRectMake(0, contentViewHeight - iconWidth -loginBarHeight -5 , kWindowW,loginBarHeight);
         UIButton *wecatIcon = [[UIButton alloc]initWithFrame:CGRectMake(kWindowW/4 -iconWidth/2 , contentViewHeight - iconWidth, iconWidth, iconWidth)];
         [wecatIcon setBackgroundImage:[UIImage imageNamed:@"icon-wechat"] forState:UIControlStateNormal];
         UIButton *tecentIcon = [[UIButton alloc]initWithFrame:CGRectMake(kWindowW/2 -iconWidth/2, contentViewHeight - iconWidth, iconWidth, iconWidth)];
@@ -82,15 +100,6 @@
         [sinaIcon addTarget:self action:@selector(clickLogin:) forControlEvents:UIControlEventTouchUpInside];
         [tecentIcon addTarget:self action:@selector(clickLogin:) forControlEvents:UIControlEventTouchUpInside];
         
-        _userIcon = [UIImageView new];
-        [_contentView addSubview:_userIcon];
-        _userIcon.layer.cornerRadius = userIconWidth /2;
-        _userIcon.layer.masksToBounds = YES;
-        _userName = [UILabel new];
-        [_contentView addSubview:_userName];
-        _userName.font = [UIFont fontWithName:@"Arial" size:12];
-        _userName.numberOfLines = 1;
-        _userName.textAlignment = NSTextAlignmentCenter;
     }
     return _contentView;
 }
@@ -115,7 +124,7 @@
     self.userName.text = snsAccount.userName;
 }
 - (void)creatLoginUI{
-    
+    self.title = @"登陆";
     UIImageView *backImageView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"run_login"]];
     backImageView.tag = 100;
     [self.view addSubview:backImageView];
@@ -125,7 +134,6 @@
     //effectView.alpha= effectAlpha;
     [self.view insertSubview:effectView atIndex:1];
     _effectView  = effectView;
-    self.animator ;
 }
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
@@ -136,6 +144,7 @@
     self.userName.frame = CGRectMake(0, userIconHeight + 5 +userIconWidth, kWindowW, userNameHeight);
 }
 
+#pragma 点击第三方登陆按钮
 - (void) clickLogin:(UIButton *)sender{
     NSString *platformStr = nil;
     switch (sender.tag) {
@@ -177,4 +186,7 @@
         }});
 }
 
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    [self fallAnimation];
+}
 @end

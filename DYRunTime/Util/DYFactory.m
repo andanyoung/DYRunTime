@@ -21,9 +21,7 @@
 @implementation DYFactory
 /** 向某个控制器上，添加login按钮 */
 + (void)addLoginItemToVC:(UIViewController *)vc{
-    
-    
-    
+
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
     NSString *userDataPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
@@ -41,8 +39,9 @@
     [btn bk_addEventHandler:^(id sender) {
         LoginViewController *loginVC = [LoginViewController new];
         loginVC.hidesBottomBarWhenPushed = YES;
+        vc.navigationController.delegate = loginVC;
         [vc.navigationController pushViewController:loginVC animated:YES];
-  
+        
     } forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *menuItem=[[UIBarButtonItem alloc] initWithCustomView:btn];
     //使用弹簧控件缩小菜单按钮和边缘距离
