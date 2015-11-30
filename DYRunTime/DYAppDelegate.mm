@@ -12,7 +12,7 @@
 #import "MobClick.h"
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
-#import "UMSocialSinaSSOHandler.h"
+
 //#import "UMSocialQQHandler.h"
 #import "DYMainViewController.h"
 
@@ -28,8 +28,8 @@
  *  App Key：1338913159
  *  App Secret：06cf533c4194a112f8ccd5e28cfae21d
  */
-#define sinaKey @"1338913159"
-#define sinaSecret @"06cf533c4194a112f8ccd5e28cfae21d"
+#define sinaKey @"3893301452"
+#define sinaSecret @"c5d9ce0901e2bcffefd10f1c0c8cd513"
 BMKMapManager* _mapManager;
 
 @interface DYAppDelegate ()
@@ -92,7 +92,7 @@ BMKMapManager* _mapManager;
     //设置微信AppId、appSecret，分享url
     //iOS9以后， xcode7 添加了代码压缩功能，ENABLE-BITCODE。此功能很多第三方库不支持，需要手动关闭
     [UMSocialWechatHandler setWXAppId:@"wx133f4899691bbec1" appSecret:@"d4624c36b6795d1d99dcf0547af5443d" url:@"http://img.blog.csdn.net/20151125192649330?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"];//跳转的链接
-    //[UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:sinaKey RedirectURL:nil];
+  //  [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
   //  [UMSocialQQHandler setQQWithAppId:@"1104539912" appKey:@"eFVgRits2fgf36Jf" url:@"http://www.umeng.com/social"];
     [MobClick setLogEnabled:YES];
 

@@ -108,6 +108,7 @@
     [super viewDidLoad];
     [self creatLoginUI];
     [self getUserDataFromLocation];
+    [self fallAnimation];
 }
 
 
@@ -186,7 +187,7 @@
         }});
 }
 
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    [self fallAnimation];
-}
+//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+//    [self fallAnimation];
+//}
 @end

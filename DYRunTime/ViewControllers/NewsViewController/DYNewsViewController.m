@@ -164,13 +164,15 @@ kRemoveCellSeparator
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    self.navigationController.navigationBar.alpha = 0.0;
+    //self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.alpha = 0.5;
 }
 
-//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-//    self.navigationController.navigationBar.alpha = 1;
-//}
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-//    self.navigationController.navigationBar.alpha = 1;
-//}
+//Decelerating 减速
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView;{
+    self.navigationController.navigationBar.alpha += 0.3;
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    self.navigationController.navigationBar.alpha = 1;
+}
 @end

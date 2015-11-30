@@ -28,6 +28,7 @@ static NSString *lastLmodify = nil; //用于保存上一次保存到本地的数
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
      manager.requestSerializer.timeoutInterval = 10.0f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
     [manager GET:urlPath parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
