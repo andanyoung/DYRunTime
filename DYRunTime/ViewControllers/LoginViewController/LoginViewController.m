@@ -14,28 +14,24 @@
 
 #define effectAlpha 0.7
 #define kMagnitude 1 //重力强度
-#define contentViewHeight 70
+#define contentViewHeight 250
 #define iconWidth 50 //登录按钮高度
 #define pathY 0.6 //contentView 下降的高度比例
-#define userIconHeight 100
+#define userIconHeight 0
 #define userIconWidth 80
+#define loginBarHeight 15
+#define userNameHeight 15
 @interface LoginViewController ()
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, weak) UIVisualEffectView *effectView;
+
 @property (nonatomic, strong) UIImageView *userIcon;
 @property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, strong) UILabel *userName;
 @end
 
 @implementation LoginViewController
-- (UIImageView *)userIcon{
-    if (_userIcon == nil) {
-        _userIcon = [UIImageView new];
-        [self.view addSubview:_userIcon];
-        _userIcon.layer.cornerRadius = userIconWidth /2;
-        _userIcon.layer.masksToBounds = YES;
-    }
-    return _userIcon;
-}
+
 - (UIDynamicAnimator *)animator{
     if (_animator == nil) {
         _animator = [[UIDynamicAnimator alloc]initWithReferenceView:self.view];
@@ -68,7 +64,8 @@
        // _contentView.backgroundColor = [UIColor redColor];
         UIImageView *loginBar = [[UIImageView alloc]initWithImage: [UIImage imageNamed:@"loginBar"]];
         [_contentView addSubview:loginBar];
-        loginBar.frame = CGRectMake(0, 0, kWindowW, contentViewHeight - iconWidth);
+        loginBar.frame = CGRectMake(0, contentViewHeight - iconWidth -loginBarHeight, kWindowW,loginBarHeight
+                                    );
         UIButton *wecatIcon = [[UIButton alloc]initWithFrame:CGRectMake(kWindowW/4 -iconWidth/2 , contentViewHeight - iconWidth, iconWidth, iconWidth)];
         [wecatIcon setBackgroundImage:[UIImage imageNamed:@"icon-wechat"] forState:UIControlStateNormal];
         UIButton *tecentIcon = [[UIButton alloc]initWithFrame:CGRectMake(kWindowW/2 -iconWidth/2, contentViewHeight - iconWidth, iconWidth, iconWidth)];
@@ -84,6 +81,16 @@
         [wecatIcon addTarget:self action:@selector(clickLogin:) forControlEvents:UIControlEventTouchUpInside];
         [sinaIcon addTarget:self action:@selector(clickLogin:) forControlEvents:UIControlEventTouchUpInside];
         [tecentIcon addTarget:self action:@selector(clickLogin:) forControlEvents:UIControlEventTouchUpInside];
+        
+        _userIcon = [UIImageView new];
+        [_contentView addSubview:_userIcon];
+        _userIcon.layer.cornerRadius = userIconWidth /2;
+        _userIcon.layer.masksToBounds = YES;
+        _userName = [UILabel new];
+        [_contentView addSubview:_userName];
+        _userName.font = [UIFont fontWithName:@"Arial" size:12];
+        _userName.numberOfLines = 1;
+        _userName.textAlignment = NSTextAlignmentCenter;
     }
     return _contentView;
 }
@@ -93,6 +100,8 @@
     [self creatLoginUI];
     [self getUserDataFromLocation];
 }
+
+
 - (void)getUserDataFromLocation{
     NSString *userDataPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
                               stringByAppendingPathComponent:@"userData.bi"];
@@ -103,6 +112,7 @@
     NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:unArchivingData];
     UMSocialAccountEntity *snsAccount = [unArchiver decodeObjectForKey:@"userData"];
     [self.userIcon setImageWithURL:[NSURL URLWithString:snsAccount.iconURL] placeholderImage:[UIImage imageNamed:@"avatar_blue_120"]];
+    self.userName.text = snsAccount.userName;
 }
 - (void)creatLoginUI{
     
@@ -112,7 +122,7 @@
     
     //添加毛玻璃
     UIVisualEffectView *effectView=[[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
-    effectView.alpha= effectAlpha;
+    //effectView.alpha= effectAlpha;
     [self.view insertSubview:effectView atIndex:1];
     _effectView  = effectView;
     self.animator ;
@@ -123,6 +133,7 @@
     [self.view viewWithTag:100].frame = self.view.bounds;
     self.contentView.frame = CGRectMake(0, 0, kWindowW, contentViewHeight);
     self.userIcon.frame = CGRectMake((kWindowW - userIconWidth)/2, userIconHeight, userIconWidth, userIconWidth);
+    self.userName.frame = CGRectMake(0, userIconHeight + 5 +userIconWidth, kWindowW, userNameHeight);
 }
 
 - (void) clickLogin:(UIButton *)sender{
@@ -151,6 +162,7 @@
             
             DDLogInfo(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             [self.userIcon setImageWithURL:[NSURL URLWithString:snsAccount.iconURL] placeholderImage:[UIImage imageNamed:@"avatar_blue_120"]];
+            self.userName.text = snsAccount.userName;
              //归档
             NSMutableData *data = [NSMutableData new];
             NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];

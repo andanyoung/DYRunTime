@@ -11,15 +11,19 @@
 #import "MapViewController.h"
 #import "LoginViewController.h"
 #import "UMSocialAccountManager.h"
+#import <UIButton+AFNetworking.h>
 
 
 #define locationIconWidth 20
 #define locationIconHeight 30
-
+#define userIconWidth 40
 
 @implementation DYFactory
 /** 向某个控制器上，添加login按钮 */
 + (void)addLoginItemToVC:(UIViewController *)vc{
+    
+    
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
     NSString *userDataPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
@@ -30,20 +34,10 @@
     //创建解档NSKeyedUnarchiver对象,并和读取后的数据进行绑定
     NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:unArchivingData];
     UMSocialAccountEntity *snsAccount = [unArchiver decodeObjectForKey:@"userData"];
-    //- (nullable UIImage *)cachedImageForRequest:(NSURLRequest *)request;
-    //从缓存中读取图片
-    UIImage *image = [[UIImageView sharedImageCache] cachedImageForRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:snsAccount.iconURL]]];
-    if (image==nil){
-        image = [UIImage imageNamed:@"avatar_blue_120"];
-    }
-    
-#warning 缓存问题
-    btn.bounds = CGRectMake(0, 0, 40, 40);
-    
-    btn.imageView.layer.cornerRadius = 20;
-    //[btn setBackgroundImage: forState:UIControlStateNormal];
-    [btn setImage:image forState:UIControlStateNormal];
-    btn.imageView.bounds = btn.bounds;
+    btn.bounds = CGRectMake(0, 0, userIconWidth, userIconWidth);
+    btn.imageView.layer.cornerRadius = userIconWidth/2.0;
+    [btn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:snsAccount.iconURL] placeholderImage:[UIImage imageNamed:@"avatar_blue_120"]];
+   // btn.imageView.bounds = btn.bounds;
     [btn bk_addEventHandler:^(id sender) {
         LoginViewController *loginVC = [LoginViewController new];
         loginVC.hidesBottomBarWhenPushed = YES;

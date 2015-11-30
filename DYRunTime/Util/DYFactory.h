@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIImageView+AFNetworking.h>
 
-@interface DYFactory : NSObject <AFImageCache>
+
+@interface DYFactory : NSObject
 /** 向某个控制器上，添加login按钮 */
 + (void)addLoginItemToVC:(UIViewController *)vc;
 

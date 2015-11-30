@@ -32,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet BMKMapView *mapView;
 @property (nonatomic, strong) BMKPolyline *polyLine;
 @property (nonatomic, strong) DYLocationManager *locationManager;
-@property (nonatomic, assign) float zoomLevel;
+//@property (nonatomic, assign) float zoomLevel;
 @property (nonatomic, weak) BMKPointAnnotation *startAnnotation;
 @property (nonatomic, strong) MBProgressHUD *progressHUD;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
@@ -46,6 +46,7 @@
    // _zoomLevel = 0;
     //初始化定位
     [self initLocation];
+  
 }
 
 
@@ -55,6 +56,7 @@
     _mapView.delegate = self;
  
     _locationManager.delegate = self;
+
     //更新位置
     if(MapViewTypeQueryDetail != _type ){
         BMKUserLocation *userLocation = _locationManager.userLocation;
@@ -70,20 +72,17 @@
         [self drawWalkPolyline:_locations];
         [self mapViewFitPolyLine:_polyLine];
         if (_type == MapViewTypeQueryDetail) {
-       
+            
             [self creatPointWithLocaiton:[_locations lastObject] title:@"终点"];
         }
-        if (_zoomLevel > 3) {
-            _mapView.zoomLevel = _zoomLevel;
-        }
-    }
 
+    }
     [MobClick beginLogPageView:[NSString stringWithFormat:@"MapView_type_%ld",_type]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [_mapView viewWillAppear];
+    [_mapView viewWillDisappear];//一定要写
     _mapView.delegate = nil;//不用时，值nil。释放内存
     
     [MobClick endLogPageView:[NSString stringWithFormat:@"MapView_type_%ld",_type]];
@@ -198,11 +197,11 @@
 
 - (void)mapViewFitPolyLine:(BMKPolyline *) polyLine {
     
-//    if (polyLine.pointCount < 20 ) {
-//        self.mapView.zoomLevel = 20;
-//        [self.mapView setCenterCoordinate:[_locations lastObject].coordinate animated:YES];
-//        return;
-//    }
+    if (polyLine.pointCount < 20 ) {
+        self.mapView.zoomLevel = 20;
+        [self.mapView setCenterCoordinate:[_locations lastObject].coordinate animated:YES];
+        return;
+    }
 
     //一个矩形的四边
     /** ltx: top left x */
@@ -248,9 +247,9 @@
     [_mapView zoomOut];
     NSLog(@"%@",NSStringFromCGPoint(point));
     DDLogInfo(@" region:%lf,%lf",_mapView.region.span.latitudeDelta,_mapView.region.span.longitudeDelta);
-    if (1.0 >_zoomLevel) {//为了让pop进来时保存住zoomlevel
-        _zoomLevel = _mapView.zoomLevel;
-    }
+//    if (1.0 >_zoomLevel) {//为了让pop进来时保存住zoomlevel
+//        _zoomLevel = _mapView.zoomLevel;
+//    }
     //zoomLevel是浮点数
 //    if (1.0 < _zoomLevel) {
 //        //设置两次（setRegion）会使zoolLevel改变？ pop进来会两次进入Viewdidappear，
@@ -380,7 +379,7 @@
 }
 
 - (IBAction)share:(id)sender {
-    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToSina, UMShareToWechatSession, UMShareToWechatTimeline]];
+    
     
     UIImage *shareImage = [self.mapView takeSnapshot];
     

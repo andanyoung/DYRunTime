@@ -27,6 +27,7 @@
 		85403DC21BFC87D00015169C /* WYRunNewsListNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 85403DC11BFC87D00015169C /* WYRunNewsListNetWork.m */; };
 		85403DC51BFC8D210015169C /* WYRunNewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85403DC41BFC8D210015169C /* WYRunNewsListViewModel.m */; };
 		85403DC81BFCAF120015169C /* DYNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85403DC71BFCAF120015169C /* DYNewsCell.m */; };
+		855204511C0BF2460019BD3B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8535D2F41C0498F0002A9B01 /* ImageIO.framework */; };
 		855F8D481C09937F0092E184 /* DYFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 855F8D471C09937F0092E184 /* DYFactory.m */; };
 		855F8D4C1C09B6D70092E184 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 855F8D4B1C09B6D70092E184 /* LoginViewController.m */; };
 		855F8D4F1C09CB180092E184 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 855F8D4E1C09CB180092E184 /* LoginView.m */; };
@@ -222,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855204511C0BF2460019BD3B /* ImageIO.framework in Frameworks */,
 				857371601C05C01300E34AAA /* libstdc++.6.0.9.tbd in Frameworks */,
 				8573715F1C05BEF700E34AAA /* libc++.tbd in Frameworks */,
 				8573715E1C05BEB300E34AAA /* libsqlite3.tbd in Frameworks */,
@@ -997,6 +999,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DYRunTime",
 					"$(PROJECT_DIR)/DYRunTime/Vendor",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				GCC_PREFIX_HEADER = DYRunTime/DYRunTime.pch;
 				INFOPLIST_FILE = DYRunTime/Info.plist;
@@ -1007,6 +1010,9 @@
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_4.2.5",
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMAnalytics_Sdk_3.6.6",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Sina",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1033,6 +1039,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DYRunTime",
 					"$(PROJECT_DIR)/DYRunTime/Vendor",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				GCC_PREFIX_HEADER = DYRunTime/DYRunTime.pch;
 				INFOPLIST_FILE = DYRunTime/Info.plist;
@@ -1043,6 +1050,9 @@
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_4.2.5",
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMAnalytics_Sdk_3.6.6",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Sina",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

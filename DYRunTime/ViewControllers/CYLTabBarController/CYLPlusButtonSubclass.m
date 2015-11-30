@@ -40,23 +40,24 @@
     [super layoutSubviews];
     
     // 控件大小,间距大小
-    CGFloat const imageViewEdge   = self.bounds.size.width * 0.6;
-    CGFloat const centerOfView    = self.bounds.size.width * 0.5;
-    CGFloat const labelLineHeight = self.titleLabel.font.lineHeight;
-    CGFloat const verticalMarginT = self.bounds.size.height - labelLineHeight - imageViewEdge;
-    CGFloat const verticalMargin  = verticalMarginT / 2;
+    CGFloat const imageViewEdge = self.bounds.size.width ;
+    CGFloat const centerOfViewX = self.bounds.size.width * 0.5;
+    CGFloat const centerOfViewY = self.bounds.size.height * 0.5 - 2;
+   // CGFloat const labelLineHeight = self.titleLabel.font.lineHeight;
+   // CGFloat const verticalMarginT = self.bounds.size.height - labelLineHeight - imageViewEdge;
+   // CGFloat const verticalMargin  = verticalMarginT / 2;
     
     // imageView 和 titleLabel 中心的 Y 值
-    CGFloat const centerOfImageView  = verticalMargin + imageViewEdge * 0.5;
-    CGFloat const centerOfTitleLabel = imageViewEdge  + verticalMargin * 2 + labelLineHeight * 0.5 + 5;
+   // CGFloat const centerOfImageView  = verticalMargin + imageViewEdge * 0.5;
+  //  CGFloat const centerOfTitleLabel = imageViewEdge  + verticalMargin * 2 + labelLineHeight * 0.5 + 5;
     
     //imageView position 位置
     self.imageView.bounds = CGRectMake(0, 0, imageViewEdge, imageViewEdge);
-    self.imageView.center = CGPointMake(centerOfView, centerOfImageView);
+    self.imageView.center = CGPointMake(centerOfViewX, centerOfViewY);
     
     //title position 位置
-    self.titleLabel.bounds = CGRectMake(0, 0, self.bounds.size.width, labelLineHeight);
-    self.titleLabel.center = CGPointMake(centerOfView, centerOfTitleLabel);
+  //  self.titleLabel.bounds = CGRectMake(0, 0, self.bounds.size.width, labelLineHeight);
+   // self.titleLabel.center = CGPointMake(centerOfView, centerOfTitleLabel);
 }
 
 /*
@@ -74,8 +75,11 @@
 
     button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
     button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
-    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [button setBackgroundImage:selectedImage forState:UIControlStateSelected];
+   // [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    //[button setBackgroundImage:selectedImage forState:UIControlStateSelected];
+    [button setImage:buttonImage forState:UIControlStateNormal];
+    [button setImage:selectedImage forState:UIControlStateSelected];
+    button.imageView.contentMode = 1;
     [button addTarget:button action:@selector(clickPublish) forControlEvents:UIControlEventTouchUpInside];
 
     return button;

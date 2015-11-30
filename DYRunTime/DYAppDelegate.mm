@@ -12,7 +12,9 @@
 #import "MobClick.h"
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
+//#import "UMSocialQQHandler.h"
 #import "DYMainViewController.h"
+
 
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
 #import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
@@ -81,10 +83,12 @@ BMKMapManager* _mapManager;
     //注册友盟统计
     [MobClick startWithAppkey:UMengKey reportPolicy:BATCH channelId:nil];
     [UMSocialData setAppKey:UMSocialKey];
-    
+    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToSina, UMShareToWechatSession, UMShareToWechatTimeline]];
     //设置微信AppId、appSecret，分享url
     //iOS9以后， xcode7 添加了代码压缩功能，ENABLE-BITCODE。此功能很多第三方库不支持，需要手动关闭
-    [UMSocialWechatHandler setWXAppId:@"wx133f4899691bbec1" appSecret:@"d4624c36b6795d1d99dcf0547af5443d" url:@"http://img.blog.csdn.net/20151125192649330?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"];//跳转的链接
+    [UMSocialWechatHandler setWXAppId:@"wx133f4899691bbec1" appSecret:@"d4624c36b6795d1d99dcf0547af5443d" url:@"https://github.com/AndyYoungCN/DYRunTime"];//跳转的链接
+    
+  //  [UMSocialQQHandler setQQWithAppId:@"1104539912" appKey:@"eFVgRits2fgf36Jf" url:@"http://www.umeng.com/social"];
     [MobClick setLogEnabled:YES];
 
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
