@@ -165,7 +165,7 @@
     }];
     
     // 放置起点旗帜
-    if (!_startAnnotation) {
+    if (!_startAnnotation || count >0  ) {
         _startAnnotation = [self creatPointWithLocaiton:[_locations firstObject] title:@"起点"];
     }
 

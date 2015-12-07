@@ -18,6 +18,7 @@
 #define locationIconHeight 30
 #define userIconWidth 40
 
+UIButton *leftBtn = nil;
 @implementation DYFactory
 /** 向某个控制器上，添加login按钮 */
 + (void)addLoginItemToVC:(UIViewController *)vc{
@@ -48,6 +49,8 @@
     UIBarButtonItem *spaceItem=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     spaceItem.width = -10;
     vc.navigationItem.leftBarButtonItems = @[spaceItem ,menuItem];
+    
+    leftBtn = btn;
 }
 
 

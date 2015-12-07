@@ -28,6 +28,10 @@
 		85403DC51BFC8D210015169C /* WYRunNewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85403DC41BFC8D210015169C /* WYRunNewsListViewModel.m */; };
 		85403DC81BFCAF120015169C /* DYNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85403DC71BFCAF120015169C /* DYNewsCell.m */; };
 		855204511C0BF2460019BD3B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8535D2F41C0498F0002A9B01 /* ImageIO.framework */; };
+		855CB3E51C0D732100347E2A /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855CB3E11C0D732100347E2A /* libSocialQQ.a */; };
+		855CB3E61C0D732100347E2A /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855CB3E21C0D732100347E2A /* TencentOpenAPI.framework */; };
+		855CB3E71C0D732100347E2A /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 855CB3E31C0D732100347E2A /* TencentOpenApi_IOS_Bundle.bundle */; };
+		855CB3FD1C0D78FA00347E2A /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855CB3FB1C0D78FA00347E2A /* libSocialSina.a */; };
 		855F8D481C09937F0092E184 /* DYFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 855F8D471C09937F0092E184 /* DYFactory.m */; };
 		855F8D4C1C09B6D70092E184 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 855F8D4B1C09B6D70092E184 /* LoginViewController.m */; };
 		855F8D4F1C09CB180092E184 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 855F8D4E1C09CB180092E184 /* LoginView.m */; };
@@ -138,6 +142,12 @@
 		85403DC41BFC8D210015169C /* WYRunNewsListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYRunNewsListViewModel.m; sourceTree = "<group>"; };
 		85403DC61BFCAF120015169C /* DYNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNewsCell.h; sourceTree = "<group>"; };
 		85403DC71BFCAF120015169C /* DYNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNewsCell.m; sourceTree = "<group>"; };
+		855CB3E11C0D732100347E2A /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
+		855CB3E21C0D732100347E2A /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		855CB3E31C0D732100347E2A /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		855CB3E41C0D732100347E2A /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
+		855CB3FB1C0D78FA00347E2A /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
+		855CB3FC1C0D78FA00347E2A /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
 		855F8D461C09937F0092E184 /* DYFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYFactory.h; sourceTree = "<group>"; };
 		855F8D471C09937F0092E184 /* DYFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYFactory.m; sourceTree = "<group>"; };
 		855F8D4A1C09B6D70092E184 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -225,6 +235,7 @@
 			files = (
 				855204511C0BF2460019BD3B /* ImageIO.framework in Frameworks */,
 				857371601C05C01300E34AAA /* libstdc++.6.0.9.tbd in Frameworks */,
+				855CB3FD1C0D78FA00347E2A /* libSocialSina.a in Frameworks */,
 				8573715F1C05BEF700E34AAA /* libc++.tbd in Frameworks */,
 				8573715E1C05BEB300E34AAA /* libsqlite3.tbd in Frameworks */,
 				8573715C1C05BE9000E34AAA /* libstdc++.tbd in Frameworks */,
@@ -233,12 +244,14 @@
 				85971D9C1C01A28100BCF178 /* libz.tbd in Frameworks */,
 				857370BD1C05932800E34AAA /* BaiduMapAPI_Location.framework in Frameworks */,
 				85E0EBA01BEB81B800C54388 /* BaiduMapAPI_Base.framework in Frameworks */,
+				855CB3E51C0D732100347E2A /* libSocialQQ.a in Frameworks */,
 				85E0EBA31BEB81B800C54388 /* BaiduMapAPI_Utils.framework in Frameworks */,
 				857370BE1C05932B00E34AAA /* BaiduMapAPI_Map.framework in Frameworks */,
 				859F2D6A1BD71EA700B8C7CD /* CoreLocation.framework in Frameworks */,
 				857371471C05A39700E34AAA /* libWeChatSDK.a in Frameworks */,
 				857371581C05A43B00E34AAA /* libMobClickLibrary.a in Frameworks */,
 				857371461C05A39700E34AAA /* libSocialWechat.a in Frameworks */,
+				855CB3E61C0D732100347E2A /* TencentOpenAPI.framework in Frameworks */,
 				8515FF531BCF845A000404E0 /* CoreTelephony.framework in Frameworks */,
 				8515FF4F1BCF8434000404E0 /* Security.framework in Frameworks */,
 				8515FF4D1BCF8429000404E0 /* CoreGraphics.framework in Frameworks */,
@@ -437,6 +450,26 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		855CB3E01C0D732100347E2A /* TencentOpenAPI */ = {
+			isa = PBXGroup;
+			children = (
+				855CB3E11C0D732100347E2A /* libSocialQQ.a */,
+				855CB3E21C0D732100347E2A /* TencentOpenAPI.framework */,
+				855CB3E31C0D732100347E2A /* TencentOpenApi_IOS_Bundle.bundle */,
+				855CB3E41C0D732100347E2A /* UMSocialQQHandler.h */,
+			);
+			path = TencentOpenAPI;
+			sourceTree = "<group>";
+		};
+		855CB3FA1C0D78FA00347E2A /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				855CB3FB1C0D78FA00347E2A /* libSocialSina.a */,
+				855CB3FC1C0D78FA00347E2A /* UMSocialSinaHandler.h */,
+			);
+			path = Sina;
+			sourceTree = "<group>";
+		};
 		855F8D491C09B6B20092E184 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +548,8 @@
 		8573711F1C05A39700E34AAA /* UMSocial_Sdk_Extra_Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				855CB3FA1C0D78FA00347E2A /* Sina */,
+				855CB3E01C0D732100347E2A /* TencentOpenAPI */,
 				857371251C05A39700E34AAA /* Wechat */,
 			);
 			path = UMSocial_Sdk_Extra_Frameworks;
@@ -694,7 +729,7 @@
 				TargetAttributes = {
 					8515FF061BCF834C000404E0 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 742NV75899;
+						DevelopmentTeam = BV78AWJ9P7;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -742,6 +777,7 @@
 				8573713E1C05A39700E34AAA /* UMShareEditViewControlleriPad.xib in Resources */,
 				857371401C05A39700E34AAA /* UMSnsAccountViewController.xib in Resources */,
 				8573713B1C05A39700E34AAA /* UMSCommentInputController.xib in Resources */,
+				855CB3E71C0D732100347E2A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				8573713A1C05A39700E34AAA /* UMSCommentDetailController.xib in Resources */,
 				8535D2A31C044B92002A9B01 /* LaunchScreen.storyboard in Resources */,
 				857370C01C05968C00E34AAA /* mapapi.bundle in Resources */,
@@ -992,6 +1028,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
@@ -999,6 +1036,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DYRunTime",
 					"$(PROJECT_DIR)/DYRunTime/Vendor",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				GCC_PREFIX_HEADER = DYRunTime/DYRunTime.pch;
 				INFOPLIST_FILE = DYRunTime/Info.plist;
@@ -1010,13 +1048,16 @@
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMAnalytics_Sdk_3.6.6",
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ady.DYRunTime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ad.DYRunTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
@@ -1029,6 +1070,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
@@ -1036,6 +1078,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DYRunTime",
 					"$(PROJECT_DIR)/DYRunTime/Vendor",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				GCC_PREFIX_HEADER = DYRunTime/DYRunTime.pch;
 				INFOPLIST_FILE = DYRunTime/Info.plist;
@@ -1047,13 +1090,16 @@
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMAnalytics_Sdk_3.6.6",
 					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/DYRunTime/Vendor/umeng_ios_social_sdk_4.2-2.5_arm64_custom/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ady.DYRunTime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ad.DYRunTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Release;

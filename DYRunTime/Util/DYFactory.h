@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+extern UIButton *leftBtn;
 
 @interface DYFactory : NSObject
 /** 向某个控制器上，添加login按钮 */

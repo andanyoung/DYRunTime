@@ -121,7 +121,10 @@
     self.tableView.backgroundColor = kRGBColor(244, 244, 244);
 }
 
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+     self.navigationController.navigationBar.alpha = 1;
+}
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.newsListVM.dataArr.count;
@@ -152,6 +155,7 @@ kRemoveCellSeparator
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc]initWithURL:[self.newsListVM url_3wWithIndexPath:indexPath.row]];
     newsDetailVC.hidesBottomBarWhenPushed = YES;
+   
     [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
 

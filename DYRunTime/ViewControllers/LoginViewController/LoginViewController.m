@@ -7,12 +7,13 @@
 //
 
 #import "LoginViewController.h"
+#import "DYFactory.h"
 #import "UMSocial.h"
 #import "WXApi.h"
 #import <UIImageView+AFNetworking.h>
+#import <UIButton+AFNetworking.h>
 
-
-#define effectAlpha 0.7
+#define effectAlpha 0.3
 #define kMagnitude 1 //重力强度
 #define contentViewHeight 240
 #define iconWidth 50 //登录按钮高度
@@ -132,7 +133,7 @@
     
     //添加毛玻璃
     UIVisualEffectView *effectView=[[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
-    //effectView.alpha= effectAlpha;
+    effectView.alpha= effectAlpha;
     [self.view insertSubview:effectView atIndex:1];
     _effectView  = effectView;
 }
@@ -156,10 +157,11 @@
             platformStr = UMShareToSina;
             break;
         case 30:
-            platformStr = UMShareToQzone;
+            platformStr = UMShareToQQ;// UMShareToQQ
             break;
         default:
-            break;
+            return;
+            //break;
     }
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:platformStr];
     snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
@@ -173,6 +175,7 @@
             DDLogInfo(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             [self.userIcon setImageWithURL:[NSURL URLWithString:snsAccount.iconURL] placeholderImage:[UIImage imageNamed:@"avatar_blue_120"]];
             self.userName.text = snsAccount.userName;
+            [leftBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:snsAccount.iconURL] placeholderImage:[UIImage imageNamed:@"avatar_blue_120"]];
              //归档
             NSMutableData *data = [NSMutableData new];
             NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
