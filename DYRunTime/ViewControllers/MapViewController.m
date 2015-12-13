@@ -165,7 +165,7 @@
     }];
     
     // 放置起点旗帜
-    if (!_startAnnotation || count >0  ) {
+    if (!_startAnnotation && count >0  ) {
         _startAnnotation = [self creatPointWithLocaiton:[_locations firstObject] title:@"起点"];
     }
 
@@ -197,11 +197,11 @@
 
 - (void)mapViewFitPolyLine:(BMKPolyline *) polyLine {
     
-    if (polyLine.pointCount < 20 ) {
-        self.mapView.zoomLevel = 20;
-        [self.mapView setCenterCoordinate:[_locations lastObject].coordinate animated:YES];
-        return;
-    }
+//    if (polyLine.pointCount < 20 ) {
+//        self.mapView.zoomLevel = 20;
+//        [self.mapView setCenterCoordinate:[_locations lastObject].coordinate animated:YES];
+//        return;
+//    }
 
     //一个矩形的四边
     /** ltx: top left x */
